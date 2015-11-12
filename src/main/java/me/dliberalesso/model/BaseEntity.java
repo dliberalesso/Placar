@@ -2,7 +2,7 @@ package me.dliberalesso.model;
 
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.Instant;
 
 /**
  * @author Douglas Liberalesso
@@ -11,7 +11,8 @@ import java.util.Date;
 @MappedSuperclass
 public abstract class BaseEntity {
     private int id;
-    private Date createdAt, updatedAt;
+    private Instant createdAt;
+    private Instant updatedAt;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,21 +27,21 @@ public abstract class BaseEntity {
 
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
-    public Date getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 
     @Column(name = "updated_at")
     @Temporal(TemporalType.TIMESTAMP)
-    public Date getUpdatedAt() {
+    public Instant getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
 
