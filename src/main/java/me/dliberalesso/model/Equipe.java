@@ -51,14 +51,6 @@ public class Equipe {
         this.integrantes = integrantes;
     }
 
-    public void adicionaIntegrante(Aluno integrante) {
-        integrantes.add(integrante);
-    }
-
-    public void removeIntegrante(Aluno integrante) {
-        integrantes.remove(integrante);
-    }
-
     @Override
     public String toString() {
         return nome;
