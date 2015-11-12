@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
  */
 
 public class HibernateUtilTest {
-    static SessionFactory sessionFactory;
-    static Session session;
+    private static SessionFactory sessionFactory;
+    private static Session session;
 
     @BeforeClass
     public static void setUp() {

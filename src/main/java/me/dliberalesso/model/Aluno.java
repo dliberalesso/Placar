@@ -10,7 +10,6 @@ import java.util.Date;
  * @author Douglas Liberalesso
  */
 
-@SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
 @Table(name = "aluno", uniqueConstraints = @UniqueConstraint(columnNames = {"nome", "sobrenome"}))
 public class Aluno extends BaseEntity {
@@ -60,6 +59,7 @@ public class Aluno extends BaseEntity {
         this.nascimento = nascimento;
     }
 
+
     @Override
     public boolean equals(Object o) {
         return false;
@@ -72,6 +72,6 @@ public class Aluno extends BaseEntity {
 
     @Override
     public String toString() {
-        return null;
+        return "[ID: " + this.getId() + "] " + nome + " " + sobrenome + "]";
     }
 }
