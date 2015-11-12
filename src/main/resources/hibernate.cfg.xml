@@ -23,6 +23,5 @@
 
         <!-- Entities classes -->
         <mapping class="me.dliberalesso.model.Aluno"/>
-        <mapping class="me.dliberalesso.model.Equipe"/>
     </session-factory>
 </hibernate-configuration>
