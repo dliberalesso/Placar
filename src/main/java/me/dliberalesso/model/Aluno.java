@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * @author Douglas Liberalesso
@@ -14,7 +14,7 @@ import java.util.Date;
 @Table(name = "aluno", uniqueConstraints = @UniqueConstraint(columnNames = {"nome", "sobrenome"}))
 public class Aluno extends BaseEntity {
     private String nome, sobrenome, email;
-    private Date nascimento;
+    private LocalDate nascimento;
 
     public Aluno() {
         // JPA only
@@ -43,31 +43,46 @@ public class Aluno extends BaseEntity {
         this.sobrenome = sobrenome;
     }
 
+    @Column(name = "email", nullable = true, unique = true)
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
+        // TODO Garantir que email seja válido
         this.email = email;
     }
 
-    public Date getNascimento() {
+    @Column(name = "nascimento", nullable = true)
+    public LocalDate getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(Date nascimento) {
+    public void setNascimento(LocalDate nascimento) {
+        // TODO Garantir que data de nascimento seja inferior à data atual
         this.nascimento = nascimento;
     }
 
-
     @Override
     public boolean equals(Object o) {
-        return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Aluno aluno = (Aluno) o;
+
+        if (!getNome().equals(aluno.getNome())) return false;
+        if (!getSobrenome().equals(aluno.getSobrenome())) return false;
+        if (getEmail() != null ? !getEmail().equals(aluno.getEmail()) : aluno.getEmail() != null) return false;
+        return !(getNascimento() != null ? !getNascimento().equals(aluno.getNascimento()) : aluno.getNascimento() != null);
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        int result = getNome().hashCode();
+        result = 31 * result + getSobrenome().hashCode();
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getNascimento() != null ? getNascimento().hashCode() : 0);
+        return result;
     }
 
     @Override
