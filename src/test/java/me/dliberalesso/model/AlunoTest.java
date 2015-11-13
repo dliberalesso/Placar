@@ -13,8 +13,6 @@ public class AlunoTest {
 
     @Test
     public void testToString() {
-        String str = "[ID: " + aluno.getId();
-        str += "] " + aluno.getNome() + " " + aluno.getSobrenome() + "]";
-        assertEquals(str, aluno.toString());
+        assertEquals("[ID: 0] Douglas Liberalesso", aluno.toString());
     }
 }

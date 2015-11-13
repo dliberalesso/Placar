@@ -87,6 +87,6 @@ public class Aluno extends BaseEntity {
 
     @Override
     public String toString() {
-        return "[ID: " + this.getId() + "] " + nome + " " + sobrenome + "]";
+        return String.format("[ID: %d] %s %s", getId(), nome, sobrenome);
     }
 }
