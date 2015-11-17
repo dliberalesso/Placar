@@ -1,4 +1,4 @@
-package me.dliberalesso;
+package me.dliberalesso.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
