@@ -19,6 +19,7 @@
         <property name="format_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup -->
+        <!-- TODO Trocar para 'update' antes de colocar em producao -->
         <property name="hbm2ddl.auto">create</property>
 
         <!-- Entities classes -->

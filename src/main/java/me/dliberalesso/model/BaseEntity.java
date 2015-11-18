@@ -1,5 +1,7 @@
 package me.dliberalesso.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -26,7 +28,7 @@ public abstract class BaseEntity {
     }
 
     @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -36,7 +38,7 @@ public abstract class BaseEntity {
     }
 
     @Column(name = "updated_at")
-    @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
     public Date getUpdatedAt() {
         return updatedAt;
     }
