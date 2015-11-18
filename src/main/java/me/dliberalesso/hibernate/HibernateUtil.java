@@ -16,7 +16,7 @@ public final class HibernateUtil {
     private static Logger logger = Logger.getLogger(HibernateUtil.class);
 
     protected static SessionFactory getSessionFactory() {
-        if (sessionFactory == null) {
+        if (sessionFactory == null || sessionFactory.isClosed()) {
             StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
 
             try {

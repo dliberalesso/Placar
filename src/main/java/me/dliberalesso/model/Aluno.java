@@ -15,6 +15,7 @@ import java.time.LocalDate;
 public class Aluno extends BaseEntity {
     private String nome, sobrenome, email;
     private LocalDate nascimento;
+//    private int idade;
 
     public Aluno() {
         // JPA only
@@ -62,6 +63,16 @@ public class Aluno extends BaseEntity {
         // TODO Garantir que data de nascimento seja inferior à data atual
         this.nascimento = nascimento;
     }
+
+// TODO Implementar idade
+//    @Transient
+//    public int getIdade() {
+//        return idade;
+//    }
+//
+//    public void setIdade(int idade) {
+//        this.idade = idade;
+//    }
 
     @Override
     public boolean equals(Object o) {

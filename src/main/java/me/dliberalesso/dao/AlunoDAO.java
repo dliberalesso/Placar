@@ -16,6 +16,18 @@ public class AlunoDAO extends SessionManager implements DAO<Aluno> {
 
         session.save(objeto);
 
+        session.flush();
+        commitAndClose();
+        return objeto;
+    }
+
+    @Override
+    public Aluno alterar(Aluno objeto) {
+        openAndBeginTx();
+
+        session.update(objeto);
+
+        session.flush();
         commitAndClose();
         return objeto;
     }
@@ -26,6 +38,7 @@ public class AlunoDAO extends SessionManager implements DAO<Aluno> {
 
         Aluno busca = session.get(Aluno.class, id);
 
+        session.flush();
         commitAndClose();
         return busca;
     }
@@ -39,5 +52,16 @@ public class AlunoDAO extends SessionManager implements DAO<Aluno> {
 
         commitAndClose();
         return todos;
+    }
+
+    @Override
+    public Aluno deletar(Aluno objeto) {
+        openAndBeginTx();
+
+        session.delete(objeto);
+
+        session.flush();
+        commitAndClose();
+        return objeto;
     }
 }

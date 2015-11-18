@@ -14,6 +14,11 @@ public class SessionManager {
         session.beginTransaction();
     }
 
+    protected void rollBack() {
+        session.getTransaction().rollback();
+        session.close();
+    }
+
     protected void commitAndClose() {
         session.getTransaction().commit();
         session.close();
