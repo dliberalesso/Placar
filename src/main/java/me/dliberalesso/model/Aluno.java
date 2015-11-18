@@ -1,10 +1,13 @@
 package me.dliberalesso.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import org.hibernate.CallbackException;
+import org.hibernate.Session;
+import org.hibernate.classic.Lifecycle;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 /**
  * @author Douglas Liberalesso
@@ -12,10 +15,10 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "aluno", uniqueConstraints = @UniqueConstraint(columnNames = {"nome", "sobrenome"}))
-public class Aluno extends BaseEntity {
+public class Aluno extends BaseEntity implements Lifecycle {
     private String nome, sobrenome, email;
     private LocalDate nascimento;
-//    private int idade;
+    private long idade;
 
     public Aluno() {
         // JPA only
@@ -64,15 +67,43 @@ public class Aluno extends BaseEntity {
         this.nascimento = nascimento;
     }
 
-// TODO Implementar idade
-//    @Transient
-//    public int getIdade() {
-//        return idade;
-//    }
-//
-//    public void setIdade(int idade) {
-//        this.idade = idade;
-//    }
+    @Transient
+    public long getIdade() {
+        return idade;
+    }
+
+    public void setIdade(long idade) {
+        this.idade = idade;
+    }
+
+    @Override
+    public boolean onSave(Session session) throws CallbackException {
+        calculaIdade();
+        return false;
+    }
+
+    @Override
+    public boolean onUpdate(Session session) throws CallbackException {
+        calculaIdade();
+        return false;
+    }
+
+    @Override
+    public boolean onDelete(Session session) throws CallbackException {
+        return false;
+    }
+
+    @Override
+    public void onLoad(Session session, Serializable serializable) {
+        calculaIdade();
+    }
+
+    protected void calculaIdade() {
+        if (nascimento != null) {
+            LocalDate agora = LocalDate.now();
+            setIdade(ChronoUnit.YEARS.between(nascimento, agora));
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

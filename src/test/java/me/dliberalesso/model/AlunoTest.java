@@ -2,6 +2,8 @@ package me.dliberalesso.model;
 
 import org.junit.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -33,5 +35,12 @@ public class AlunoTest {
     public void testNotEqual() {
         Aluno aluno1 = new Aluno("Douuglas", "Liberalesso");
         assertNotEquals(aluno1, aluno);
+    }
+
+    @Test
+    public void testCalculaIdade() {
+        aluno.setNascimento(LocalDate.of(1989, 12, 22));
+        aluno.calculaIdade();
+        assertEquals(25, aluno.getIdade());
     }
 }

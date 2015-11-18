@@ -4,6 +4,7 @@ import me.dliberalesso.model.Aluno;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -26,6 +27,7 @@ public class AlunoDAOTest {
     @Test
     public void testSalvarBuscar() {
         Aluno aluno = new Aluno("Douglas", "Liberalesso");
+        aluno.setNascimento(LocalDate.of(1989, 12, 22));
         alunoDAO.salvarOuAlterar(aluno);
         expectedSize++;
         assertEquals(aluno, alunoDAO.buscar(aluno.getId()));
