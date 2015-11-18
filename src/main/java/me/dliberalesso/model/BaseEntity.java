@@ -1,8 +1,6 @@
 package me.dliberalesso.model;
 
 
-import me.dliberalesso.listener.Listener;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,7 +9,6 @@ import java.util.Date;
  */
 
 @MappedSuperclass
-@EntityListeners(Listener.class)
 public abstract class BaseEntity {
     private int id;
     private Date createdAt;
