@@ -7,9 +7,7 @@ import java.util.Collection;
  */
 
 public interface DAO<T> {
-    T salvar(T objeto);
-
-    T alterar(T objeto);
+    T salvarOuAlterar(T objeto);
 
     T buscar(int id);
 

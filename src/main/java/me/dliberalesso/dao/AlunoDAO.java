@@ -11,21 +11,10 @@ import java.util.Collection;
 
 public class AlunoDAO extends SessionManager implements DAO<Aluno> {
     @Override
-    public Aluno salvar(Aluno objeto) {
+    public Aluno salvarOuAlterar(Aluno objeto) {
         openAndBeginTx();
 
-        session.save(objeto);
-
-        session.flush();
-        commitAndClose();
-        return objeto;
-    }
-
-    @Override
-    public Aluno alterar(Aluno objeto) {
-        openAndBeginTx();
-
-        session.update(objeto);
+        session.saveOrUpdate(objeto);
 
         session.flush();
         commitAndClose();

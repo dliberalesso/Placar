@@ -26,22 +26,22 @@ public class AlunoDAOTest {
     @Test
     public void testSalvarBuscar() {
         Aluno aluno = new Aluno("Douglas", "Liberalesso");
-        alunoDAO.salvar(aluno);
+        alunoDAO.salvarOuAlterar(aluno);
         expectedSize++;
         assertEquals(aluno, alunoDAO.buscar(aluno.getId()));
         aluno = new Aluno("Susane", "Engel");
-        alunoDAO.salvar(aluno);
+        alunoDAO.salvarOuAlterar(aluno);
         expectedSize++;
     }
 
     @Test
-    public void testAlterar() {
+    public void testSalvarOuAlterar() {
         Aluno aluno = new Aluno("Adriana", "Liberalesso");
         String nome = "Mauricio";
-        alunoDAO.salvar(aluno);
+        alunoDAO.salvarOuAlterar(aluno);
         expectedSize++;
         aluno.setNome(nome);
-        alunoDAO.alterar(aluno);
+        alunoDAO.salvarOuAlterar(aluno);
         assertEquals(nome, alunoDAO.buscar(aluno.getId()).getNome());
     }
 
@@ -54,7 +54,7 @@ public class AlunoDAOTest {
     @Test
     public void testDeletar() {
         Aluno aluno = new Aluno("Marlon", "Arguilar");
-        alunoDAO.salvar(aluno);
+        alunoDAO.salvarOuAlterar(aluno);
         expectedSize++;
         alunoDAO.deletar(aluno);
         expectedSize--;
