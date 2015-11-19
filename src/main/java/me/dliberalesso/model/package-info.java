@@ -8,8 +8,6 @@
  * <p>As classes seguem o padrao de get/set para cada atributo(coluna) do Banco de Dados e, como
  * convencao, estao anotadas como <i>Entity</i>.</p>
  *
- * @author Adair Limana
- * @author Douglas Liberalesso
  * @see <a href="https://pt.wikipedia.org/wiki/JavaBeansBEAN">JavaBeans</a>
  * @see <a href="https://pt.wikipedia.org/wiki/MVC">MVC</a>
  */

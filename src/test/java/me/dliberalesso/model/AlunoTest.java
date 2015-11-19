@@ -7,10 +7,6 @@ import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-/**
- * @author Douglas Liberalesso
- */
-
 public class AlunoTest {
     private Aluno aluno = new Aluno("Douglas", "Liberalesso");
 

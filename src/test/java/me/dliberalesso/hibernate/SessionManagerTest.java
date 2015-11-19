@@ -5,10 +5,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/**
- * @author Douglas Liberalesso
- */
-
 public class SessionManagerTest extends SessionManager {
 
     @Test

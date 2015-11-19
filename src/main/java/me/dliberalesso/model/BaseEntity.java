@@ -11,9 +11,6 @@ import java.util.Date;
  *
  * <p>Esta classe contem um conjunto de <i>setters</i> e <i>getters</i> e estabelece nomes
  * apropriados para as colunas no Banco de Dados.</p>
- *
- * @author Adair Limana
- * @author Douglas Liberalesso
  */
 
 @MappedSuperclass

@@ -10,10 +10,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- * @author Douglas Liberalesso
- */
-
 public class AlunoDAOTest {
     private static AlunoDAO alunoDAO;
     private static int expectedSize;

@@ -9,10 +9,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-/**
- * @author Douglas Liberalesso
- */
-
 @Entity
 @Table(name = "aluno", uniqueConstraints = @UniqueConstraint(columnNames = {"nome", "sobrenome"}))
 public class Aluno extends BaseEntity implements Lifecycle {

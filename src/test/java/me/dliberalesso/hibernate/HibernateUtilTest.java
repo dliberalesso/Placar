@@ -8,10 +8,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * @author Douglas Liberalesso
- */
-
 public class HibernateUtilTest {
     private static SessionFactory sessionFactory;
     private static Session session;

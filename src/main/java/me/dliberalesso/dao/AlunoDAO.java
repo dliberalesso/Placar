@@ -5,10 +5,6 @@ import me.dliberalesso.model.Aluno;
 
 import java.util.Collection;
 
-/**
- * @author Douglas Liberalesso
- */
-
 public class AlunoDAO extends SessionManager implements DAO<Aluno> {
     @Override
     public Aluno salvarOuAlterar(Aluno objeto) {

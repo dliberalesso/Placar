@@ -7,10 +7,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.jboss.logging.Logger;
 
-/**
- * @author Douglas Liberalesso
- */
-
 public final class HibernateUtil {
     private static SessionFactory sessionFactory;
     private static Logger logger = Logger.getLogger(HibernateUtil.class);

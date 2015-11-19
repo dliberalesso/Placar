@@ -2,10 +2,6 @@ package me.dliberalesso.hibernate;
 
 import org.hibernate.Session;
 
-/**
- * @author Douglas Liberalesso
- */
-
 public class SessionManager {
     protected Session session;
 
