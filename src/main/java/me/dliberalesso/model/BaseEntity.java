@@ -7,6 +7,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
+ * Define atributos basicos e necessarios para todas as Entidades que compoem o Modelo.
+ *
+ * <p>Esta classe contem um conjunto de <i>setters</i> e <i>getters</i> e estabelece nomes
+ * apropriados para as colunas no Banco de Dados.</p>
+ *
+ * @author Adair Limana
  * @author Douglas Liberalesso
  */
 
