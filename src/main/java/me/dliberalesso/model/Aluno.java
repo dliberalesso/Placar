@@ -5,7 +5,9 @@ import java.time.temporal.ChronoUnit;
 
 /**
  * Modela Aluno e confere comportamento.
+ * <p>
  * Aluno eh composto por nome, sobrenome, email e nascimento.
+ * <p>
  * Alem disso, Aluno ainda tem idade, a qual eh calculada em tempo de execucao.
  */
 public class Aluno {
@@ -17,17 +19,6 @@ public class Aluno {
      */
     public Aluno() {
         // Generico
-    }
-
-    /**
-     * Constroi um objeto Aluno basico.
-     *
-     * @param nome      Nome do aluno
-     * @param sobrenome Sobrenome do aluno
-     */
-    public Aluno(String nome, String sobrenome) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
     }
 
     /**
