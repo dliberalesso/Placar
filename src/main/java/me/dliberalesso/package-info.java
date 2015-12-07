@@ -1,12 +1,12 @@
 /**
  * A aplicacao segue o padrao de arquitetura de software Model-View-Controller (MVC).
  * <p>
- * No pacote <b>model</b> estao modelados os dados, regras de negocio, logica e funcoes.
+ * No pacote {@link me.dliberalesso.model} estao modelados os dados, regras de negocio, logica e funcoes.
  * <p>
- * No pacote <b>view</b> estao as saidas de dados e tela de interacao com a aplicacao.
+ * No pacote {@link me.dliberalesso.controller} estao as saidas de dados e tela de interacao com a aplicacao.
  * <p>
- * Por fim, no pacote <b>controller</b> estao classes que fazem a mediacao da entrada, convertendo-a
- * em comandos para o <b>model</b> ou <b>view</b>.
+ * Por fim, no pacote {@link me.dliberalesso.view} estao classes que fazem a mediacao da entrada, convertendo-a
+ * em comandos para o restante da aplicacao.
  *
  * @see <a href="https://pt.wikipedia.org/wiki/MVC">MVC</a>
  */
