@@ -98,7 +98,7 @@ public class Aluno {
      * Se a data for igual ou superior a data atual, joga uma excecao.
      *
      * @param nascimento Data de nascimento
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException Data de nascimento nao pode ser menor que a atual
      */
     public void setNascimento(LocalDate nascimento) throws IllegalArgumentException {
         if (nascimento.isBefore(LocalDate.now())) {
