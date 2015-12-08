@@ -1,12 +1,9 @@
 package me.dliberalesso;
 
-import me.dliberalesso.view.Teste;
+import me.dliberalesso.controller.Controlador;
 
-/**
- * Hello world!
- */
 public class App {
     public static void main(String[] args) {
-        new Teste();
+        Controlador.mostraInicio();
     }
 }

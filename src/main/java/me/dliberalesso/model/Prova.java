@@ -3,11 +3,11 @@ package me.dliberalesso.model;
 /**
  * Modela Prova e confere comportamento.
  * <p>
- * Uma Prova eh composta por sua descricao, tempo maximo em segundos e pontuacao maxima.
+ * Uma Prova eh composta por sua descricao, tempo maximo e penalidade em segundos, pontuacao maxima.
  */
 public class Prova {
     private String descricao;
-    private int tempoMaximo, pontuacaoMaxima;
+    private int tempoMaximo, pontuacaoMaxima, penalidade;
 
     /**
      * Construtor generico utilizado pela GUI.
@@ -68,5 +68,23 @@ public class Prova {
      */
     public void setPontuacaoMaxima(int pontuacaoMaxima) {
         this.pontuacaoMaxima = pontuacaoMaxima;
+    }
+
+    /**
+     * Retorna a penalidade da Prova.
+     *
+     * @return penalidade
+     */
+    public int getPenalidade() {
+        return penalidade;
+    }
+
+    /**
+     * Seta a penalidade da Prova.
+     *
+     * @param penalidade Penalidade em segundos
+     */
+    public void setPenalidade(int penalidade) {
+        this.penalidade = penalidade;
     }
 }

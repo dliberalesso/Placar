@@ -1,5 +1,6 @@
 package me.dliberalesso.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public class Equipe {
      * Construtor generico utilizado pela GUI.
      */
     public Equipe() {
-        // Generico
+        alunoList = new ArrayList<>();
     }
 
     /**
