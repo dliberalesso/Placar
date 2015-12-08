@@ -20,6 +20,6 @@ public class Controlador {
     }
 
     public static void mostraInicio() {
-        Inicio inicio = new Inicio();
+        new Inicio(!(equipes.isEmpty() && provas.isEmpty()));
     }
 }
