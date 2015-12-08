@@ -53,7 +53,7 @@ public class Prova {
     }
 
     /**
-     * Retorna a pontuacao maxima da Prova
+     * Retorna a pontuacao maxima da Prova.
      *
      * @return pontuacaoMaxima
      */
@@ -62,7 +62,7 @@ public class Prova {
     }
 
     /**
-     * Seta a pontuacao maxima da Prova
+     * Seta a pontuacao maxima da Prova.
      *
      * @param pontuacaoMaxima Pontuacao maxima
      */
