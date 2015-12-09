@@ -24,7 +24,6 @@ public class Cronometro extends JPanel {
 
         // Contador
         labelContador = new JLabel("00:00:000", SwingConstants.CENTER);
-        labelContador.setPreferredSize(new Dimension(300, 100));
         labelContador.setFont(labelContador.getFont().deriveFont(48.0f));
         labelContador.setBorder(BorderFactory.createEtchedBorder());
         this.add(labelContador, BorderLayout.PAGE_START);
@@ -57,8 +56,7 @@ public class Cronometro extends JPanel {
         buttonParar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                timer.stop();
-                iniciou = false;
+                parar();
             }
         });
         this.add(buttonParar, BorderLayout.LINE_END);
@@ -106,5 +104,16 @@ public class Cronometro extends JPanel {
      */
     public int getMiliSegundos() {
         return miliSegundos;
+    }
+
+    private void parar() {
+        timer.stop();
+        iniciou = false;
+    }
+
+    public void zerar() {
+        this.parar();
+        labelContador.setText("00:00:000");
+        miliSegundos = 0;
     }
 }

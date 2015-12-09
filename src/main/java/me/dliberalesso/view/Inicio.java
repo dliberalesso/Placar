@@ -1,9 +1,6 @@
 package me.dliberalesso.view;
 
-import me.dliberalesso.controller.ControladorCadastraEquipe;
-import me.dliberalesso.controller.ControladorCadastraProva;
-import me.dliberalesso.controller.ControladorVerEquipes;
-import me.dliberalesso.controller.ControladorVerProvas;
+import me.dliberalesso.controller.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,6 +46,14 @@ public class Inicio extends JFrame {
         // Botao para iniciar provas
         buttonIniciarProvas = new JButton("Iniciar Provas");
         buttonIniciarProvas.setEnabled(temEquipe && temProva);
+        buttonIniciarProvas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorSelecionaProva.mostraSelecionaProva();
+                ControladorSelecionaProva.getSelecionaProva().setLocationRelativeTo(container);
+                dispose();
+            }
+        });
         container.add(buttonIniciarProvas);
 
         // Botao para ver equipes
