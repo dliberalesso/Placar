@@ -3,6 +3,7 @@ package me.dliberalesso.view;
 import me.dliberalesso.controller.ControladorCadastraEquipe;
 import me.dliberalesso.controller.ControladorCadastraProva;
 import me.dliberalesso.controller.ControladorVerEquipes;
+import me.dliberalesso.controller.ControladorVerProvas;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,6 +67,14 @@ public class Inicio extends JFrame {
         // Botao para ver provas
         buttonVerProvas = new JButton("Ver Provas");
         buttonVerProvas.setEnabled(temProva);
+        buttonVerProvas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorVerProvas.mostraVerProvas();
+                ControladorVerProvas.getVerProvas().setLocationRelativeTo(container);
+                dispose();
+            }
+        });
         container.add(buttonVerProvas);
 
         // Botao para ver classificacao

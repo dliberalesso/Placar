@@ -10,6 +10,7 @@ import java.util.List;
  */
 
 public class Equipe {
+    private int pontuacao;
     private String nome, escola;
     private List<Aluno> alunoList;
 
@@ -17,7 +18,26 @@ public class Equipe {
      * Construtor generico utilizado pela GUI.
      */
     public Equipe() {
+        pontuacao = 0;
         alunoList = new ArrayList<>();
+    }
+
+    /**
+     * Retorna a pontuacao acumulada da Equipe.
+     *
+     * @return pontuacao;
+     */
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    /**
+     * Adiciona pontos na pontuacao da Equipe.
+     *
+     * @param pontos Pontos para adicionar
+     */
+    public void addPontos(int pontos) {
+        pontuacao += pontos;
     }
 
     /**
