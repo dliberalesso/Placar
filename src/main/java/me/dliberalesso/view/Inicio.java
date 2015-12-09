@@ -10,12 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Inicio extends JFrame {
-    private JButton buttonCadastraEquipe, buttonCadastraProva, buttonCadastraPatro, buttonIniciarProvas;
-    private JButton buttonVerEquipes, buttonVerProvas, buttonVerPatro, buttonVerClassificacao;
+    private JButton buttonCadastraEquipe, buttonCadastraProva, buttonIniciarProvas;
+    private JButton buttonVerEquipes, buttonVerProvas, buttonVerClassificacao;
     private Container container;
     private GridLayout layout;
 
-    public Inicio(boolean temEquipe, boolean temProva, boolean temPatrocinador) throws HeadlessException {
+    public Inicio(boolean temEquipe, boolean temProva) throws HeadlessException {
         super("Placar da URI");
         container = getContentPane();
         layout = new GridLayout(2, 4, 5, 5);
@@ -45,13 +45,9 @@ public class Inicio extends JFrame {
         });
         container.add(buttonCadastraProva);
 
-        // Botao para cadastrar patrocinador
-        buttonCadastraPatro = new JButton("Cadastrar Patrocinador");
-        container.add(buttonCadastraPatro);
-
         // Botao para iniciar provas
         buttonIniciarProvas = new JButton("Iniciar Provas");
-        buttonIniciarProvas.setEnabled(temEquipe && temProva && temPatrocinador);
+        buttonIniciarProvas.setEnabled(temEquipe && temProva);
         container.add(buttonIniciarProvas);
 
         // Botao para ver equipes
@@ -72,17 +68,12 @@ public class Inicio extends JFrame {
         buttonVerProvas.setEnabled(temProva);
         container.add(buttonVerProvas);
 
-        // Botao para ver patrocinador
-        buttonVerPatro = new JButton("Ver Patrocinador");
-        buttonVerPatro.setEnabled(temPatrocinador);
-        container.add(buttonVerPatro);
-
         // Botao para ver classificacao
         buttonVerClassificacao = new JButton("Ver Classificaçao");
-        buttonVerClassificacao.setEnabled(temEquipe && temProva && temPatrocinador);
+        buttonVerClassificacao.setEnabled(temEquipe && temProva);
         container.add(buttonVerClassificacao);
 
-        setSize(710, 110);
+        setSize(450, 110);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
