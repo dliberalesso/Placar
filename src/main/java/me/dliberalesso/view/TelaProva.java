@@ -6,6 +6,7 @@ import me.dliberalesso.controller.JanelaListener;
 import me.dliberalesso.model.Equipe;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,12 +16,13 @@ public class TelaProva extends JFrame {
     private Cronometro cronometro;
 
     private JLabel labelTitulo;
-    private JList<Equipe> faltanteJList, realizouJList;
+    private JList<Equipe> faltanteJList;
+    private JTable realizouJTable;
     private JButton buttonSalvar, buttonZerar, buttonTerminar;
 
     public TelaProva(
             DefaultListModel<Equipe> equipeListModelFaltante,
-            DefaultListModel<Equipe> equipetListModelRealizou
+            DefaultTableModel equipeTableModelRealizou
     ) throws HeadlessException {
         super("Prova");
 
@@ -53,18 +55,42 @@ public class TelaProva extends JFrame {
 
         JPanel panel3 = new JPanel(new BorderLayout(100, 100));
         buttonSalvar = new JButton("Salvar");
+        buttonSalvar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (faltanteJList.getSelectedIndex() == -1) {
+                    JOptionPane.showMessageDialog(container, "Seleciona uma equipe da lista.", "ERRO", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    ControladorTelaProva.pontua(faltanteJList.getSelectedIndex(), cronometro.getMiliSegundos());
+                    cronometro.zerar();
+                }
+            }
+        });
         panel3.add(buttonSalvar, BorderLayout.PAGE_START);
 
         buttonTerminar = new JButton("Terminar");
+        buttonTerminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
         panel3.add(buttonTerminar, BorderLayout.PAGE_END);
 
         panel2.add(panel3, BorderLayout.PAGE_END);
 
         panel1.add(panel2);
 
-        realizouJList = new JList<Equipe>(equipetListModelRealizou);
-        realizouJList.setVisibleRowCount(20);
-        panel1.add(new JScrollPane(realizouJList));
+        realizouJTable = new JTable(equipeTableModelRealizou) {
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                if (equipeTableModelRealizou.getRowCount() == 0) {
+                    return Object.class;
+                }
+                return getValueAt(0, columnIndex).getClass();
+            }
+        };
+        panel1.add(new JScrollPane(realizouJTable));
         container.add(panel1, BorderLayout.CENTER);
 
         setSize(800, 600);

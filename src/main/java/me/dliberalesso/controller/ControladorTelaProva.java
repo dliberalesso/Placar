@@ -5,6 +5,7 @@ import me.dliberalesso.model.Prova;
 import me.dliberalesso.view.TelaProva;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
 public class ControladorTelaProva {
@@ -13,7 +14,7 @@ public class ControladorTelaProva {
 
     private static List<Equipe> equipeList;
     private static DefaultListModel<Equipe> equipeListModelFaltante; // Equipes que ainda nao realizaram a prova
-    private static DefaultListModel<Equipe> equipetListModelRealizou; // Equipes que ja realizaram a prova
+    private static DefaultTableModel equipeTableModelRealizou; // Equipes que ja realizaram a prova
 
     public static void mostraTelaProva(Prova prova) {
         ControladorTelaProva.prova = prova;
@@ -26,9 +27,18 @@ public class ControladorTelaProva {
         }
 
         // Inicializa equipes que ja realizaram a prova
-        equipetListModelRealizou = new DefaultListModel<Equipe>();
+        equipeTableModelRealizou = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
+        equipeTableModelRealizou.addColumn("Nome");
+        equipeTableModelRealizou.addColumn("Escola");
+        equipeTableModelRealizou.addColumn("Pontuacao");
 
-        telaProva = new TelaProva(equipeListModelFaltante, equipetListModelRealizou);
+        telaProva = new TelaProva(equipeListModelFaltante, equipeTableModelRealizou);
     }
 
     public static Prova getProva() {
@@ -41,5 +51,11 @@ public class ControladorTelaProva {
 
     public static TelaProva getTelaProva() {
         return telaProva;
+    }
+
+    public static void pontua(int index, int milisegundos) {
+        Equipe equipe = equipeListModelFaltante.remove(index);
+        equipe.addPontos(prova.getPontuacaoMaxima() - ((milisegundos / 1000) * (prova.getPontuacaoMaxima() / prova.getTempoMaximo())));
+        equipeTableModelRealizou.addRow(new Object[]{equipe.getNome(), equipe.getEscola(), equipe.getPontuacao()});
     }
 }
