@@ -29,8 +29,13 @@ public class Prova {
      * Seta a descricao da Prova.
      *
      * @param descricao String que representa a descricao da Prova
+     * @throws IllegalArgumentException Descricao nao pode ser vazia
      */
-    public void setDescricao(String descricao) {
+    public void setDescricao(String descricao) throws IllegalArgumentException {
+        if (descricao.equals("")) {
+            throw new IllegalArgumentException("Descricao nao pode ser vazia.");
+        }
+
         this.descricao = descricao;
     }
 
@@ -47,8 +52,13 @@ public class Prova {
      * Seta o tempo maximo de duracao da Prova em segundos.
      *
      * @param tempoMaximo Tempo maximo em segundos
+     * @throws IllegalArgumentException Tempo maximo deve ser um inteiro maior ou igual a zero
      */
-    public void setTempoMaximo(int tempoMaximo) {
+    public void setTempoMaximo(int tempoMaximo) throws IllegalArgumentException {
+        if (tempoMaximo == 0) {
+            throw new IllegalArgumentException("Tempo maximo deve ser um inteiro maior ou igual a zero.");
+        }
+
         this.tempoMaximo = tempoMaximo;
     }
 
@@ -65,8 +75,13 @@ public class Prova {
      * Seta a pontuacao maxima da Prova.
      *
      * @param pontuacaoMaxima Pontuacao maxima
+     * @throws IllegalArgumentException Pontuacao maxima deve ser um inteiro maior ou igual a zero
      */
-    public void setPontuacaoMaxima(int pontuacaoMaxima) {
+    public void setPontuacaoMaxima(int pontuacaoMaxima) throws IllegalArgumentException {
+        if (pontuacaoMaxima == 0) {
+            throw new IllegalArgumentException("Pontuacao maxima deve ser um inteiro maior ou igual a zero.");
+        }
+
         this.pontuacaoMaxima = pontuacaoMaxima;
     }
 
@@ -83,8 +98,13 @@ public class Prova {
      * Seta a penalidade da Prova.
      *
      * @param penalidade Penalidade em segundos
+     * @throws IllegalArgumentException Penalidade deve ser um inteiro maior ou igual a zero
      */
-    public void setPenalidade(int penalidade) {
+    public void setPenalidade(int penalidade) throws IllegalArgumentException {
+        if (penalidade == 0) {
+            throw new IllegalArgumentException("Penalidade deve ser um inteiro maior ou igual a zero.");
+        }
+
         this.penalidade = penalidade;
     }
 

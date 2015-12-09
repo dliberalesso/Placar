@@ -1,6 +1,7 @@
 package me.dliberalesso.view;
 
 import me.dliberalesso.controller.ControladorCadastraEquipe;
+import me.dliberalesso.controller.ControladorCadastraProva;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,6 +33,14 @@ public class Inicio extends JFrame {
 
         // Botao para cadastrar prova
         buttonCadastraProva = new JButton("Cadastrar Prova");
+        buttonCadastraProva.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorCadastraProva.mostraCadastraProva();
+                ControladorCadastraProva.getCadastraProva().setLocationRelativeTo(container);
+                dispose();
+            }
+        });
         container.add(buttonCadastraProva);
 
         // Botao para iniciar provas
