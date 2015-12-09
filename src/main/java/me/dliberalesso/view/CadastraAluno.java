@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CadastraAluno extends JFrame {
     private JLabel labelNome, labelSobrenome, labelEmail, labelNascimento;
@@ -49,12 +50,13 @@ public class CadastraAluno extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Aluno aluno = new Aluno();
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
                 try {
                     aluno.setNome(fieldNome.getText());
                     aluno.setSobrenome(fieldSobrenome.getText());
                     aluno.setEmail(fieldEmail.getText());
-                    aluno.setNascimento(LocalDate.parse(fieldNascimento.getText()));
+                    aluno.setNascimento(LocalDate.parse(fieldNascimento.getText(), dateTimeFormatter));
                     ControladorCadastraEquipe.getAlunos().add(aluno);
                     ControladorCadastraEquipe.getCadastraEquipe().getListModel().addElement(aluno);
                     dispose();

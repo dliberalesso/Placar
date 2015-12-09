@@ -1,7 +1,9 @@
 package me.dliberalesso.view;
 
+import me.dliberalesso.controller.ControladorCadastraEquipe;
 import me.dliberalesso.controller.JanelaListener;
 import me.dliberalesso.model.Aluno;
+import me.dliberalesso.model.Equipe;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,6 +61,29 @@ public class CadastraEquipe extends JFrame {
 
         // Botao confirma
         buttonConfirma = new JButton("Confirma");
+        buttonConfirma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (fieldNome.equals("")) {
+                    String mensagem = "Informe um nome para a Equipe";
+                    JOptionPane.showMessageDialog(container, mensagem, "INFO", JOptionPane.INFORMATION_MESSAGE);
+                } else if (fieldEscola.equals("")) {
+                    String mensagem = "Informe um nome para a Escola";
+                    JOptionPane.showMessageDialog(container, mensagem, "INFO", JOptionPane.INFORMATION_MESSAGE);
+                } else if (ControladorCadastraEquipe.getAlunos().isEmpty()) {
+                    String mensagem = "Cadastre ao menos um Aluno para a Equipe";
+                    JOptionPane.showMessageDialog(container, mensagem, "INFO", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    Equipe equipe = new Equipe();
+                    equipe.setNome(fieldNome.getText());
+                    equipe.setEscola(fieldEscola.getText());
+                    equipe.setAlunoList(ControladorCadastraEquipe.getAlunos());
+                    ControladorCadastraEquipe.adicionaEquipe(equipe);
+                    dispose();
+                }
+            }
+        });
+
         JPanel panel2 = new JPanel(new BorderLayout(5, 5));
         panel2.add(buttonConfirma, BorderLayout.LINE_END);
         container.add(panel2, BorderLayout.PAGE_END);

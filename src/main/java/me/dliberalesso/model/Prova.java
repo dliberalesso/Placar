@@ -87,4 +87,9 @@ public class Prova {
     public void setPenalidade(int penalidade) {
         this.penalidade = penalidade;
     }
+
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }

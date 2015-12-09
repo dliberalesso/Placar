@@ -115,6 +115,6 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return nome + " " + sobrenome;
+        return nome + " " + sobrenome + ", " + getIdade() + " anos;";
     }
 }

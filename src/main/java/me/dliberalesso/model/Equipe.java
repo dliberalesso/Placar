@@ -66,11 +66,16 @@ public class Equipe {
     }
 
     /**
-     * Adiciona um Aluno na Equipe.
+     * Seta uma lista contendo os alunso integrantes da Equipe.
      *
-     * @param aluno Aluno que integra a Equipe
+     * @param alunoList Lista de alunos
      */
-    public void addAluno(Aluno aluno) {
-        alunoList.add(aluno);
+    public void setAlunoList(List<Aluno> alunoList) {
+        this.alunoList = alunoList;
+    }
+
+    @Override
+    public String toString() {
+        return nome + "  -  " + escola;
     }
 }
