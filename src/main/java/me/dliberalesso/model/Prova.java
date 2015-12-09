@@ -101,7 +101,7 @@ public class Prova {
      * @throws IllegalArgumentException Penalidade deve ser um inteiro maior ou igual a zero
      */
     public void setPenalidade(int penalidade) throws IllegalArgumentException {
-        if (penalidade == 0) {
+        if (penalidade <= 0) {
             throw new IllegalArgumentException("Penalidade deve ser um inteiro maior ou igual a zero.");
         }
 
