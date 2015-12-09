@@ -81,15 +81,7 @@ public class TelaProva extends JFrame {
 
         panel1.add(panel2);
 
-        realizouJTable = new JTable(equipeTableModelRealizou) {
-            @Override
-            public Class<?> getColumnClass(int columnIndex) {
-                if (equipeTableModelRealizou.getRowCount() == 0) {
-                    return Object.class;
-                }
-                return getValueAt(0, columnIndex).getClass();
-            }
-        };
+        realizouJTable = new JTable(equipeTableModelRealizou);
         panel1.add(new JScrollPane(realizouJTable));
         container.add(panel1, BorderLayout.CENTER);
 
