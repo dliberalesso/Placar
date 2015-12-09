@@ -112,4 +112,9 @@ public class Aluno {
             return 0;
         }
     }
+
+    @Override
+    public String toString() {
+        return nome + " " + sobrenome;
+    }
 }
