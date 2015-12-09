@@ -85,6 +85,13 @@ public class Inicio extends JFrame {
         // Botao para ver classificacao
         buttonVerClassificacao = new JButton("Ver Classificaçao");
         buttonVerClassificacao.setEnabled(temEquipe && temProva);
+        buttonVerClassificacao.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorSalvaClassificacao.salvaClassificacao();
+                JOptionPane.showMessageDialog(container, "Classificação salva em pontuacao.txt", "INFO", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
         container.add(buttonVerClassificacao);
 
         setSize(450, 110);

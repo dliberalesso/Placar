@@ -11,11 +11,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class TelaProva extends JFrame {
     private Cronometro cronometro;
@@ -77,27 +72,11 @@ public class TelaProva extends JFrame {
         buttonTerminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //if(faltanteJList.getSize().equals(0)) {
-                    FileWriter pontuacao;
-                    try {
-                        pontuacao = new FileWriter("D:\\Documentos\\NetBeansProjects\\Placar\\src\\pontuacao.txt");
-                        PrintWriter gravarPontuacao = new PrintWriter(pontuacao);
-                        gravarPontuacao.printf("+---------------Pontuação---------------+%n");
-                        gravarPontuacao.printf("Equipe\t\tEscola\t\tPontuacao%n");
-                        gravarPontuacao.printf("+----------------------------------------+%n");
-//                        for() {
-//                         
-//                        }
-                        pontuacao.close();
-                    } catch (IOException ex) {
-                        Logger.getLogger(TelaProva.class.getName()).log(Level.SEVERE, null, ex);
-                    } 
-                    
-
-//                else {
-//                    JOptionPane.showMessageDialog(container, "Nem todas as equipes terminaram a prova!", "ERRO", JOptionPane.ERROR_MESSAGE);
-//                }
-                dispose();
+                if (faltanteJList.getModel().getSize() == 0) {
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(container, "Nem todas as equipes terminaram a prova!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         panel3.add(buttonTerminar, BorderLayout.PAGE_END);
